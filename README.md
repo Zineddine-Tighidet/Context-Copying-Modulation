@@ -55,6 +55,11 @@ pip install .
 
 ## 3. Reproduce the results in the paper:
 
+**Important:** before running the `pipeline.sh` script, make sure to add execution permission:
+```sh
+chmod +x ./scripts/entropy_neurons_scripts/pipeline.sh
+```
+
 ### For all the models:
 ```sh
 ./scripts/entropy_neurons_scripts/pipeline.sh --ablation_value <ablation_value> --device <device>
