@@ -46,12 +46,12 @@ then install the requirements:
 pip install -r project-requirements.txt
 ```
 
+**Important:** set up the `HUGGINGFACE_TOKEN` constant in the `src/model.py` module with your huggingface access token to load the LLMs from the huggingface hub.
+
 Finally install the package with `pip`:
 ```sh
 pip install .
 ```
-
-**Important:** set up the `HUGGINGFACE_TOKEN` constant in the `src/model.py` module with your huggingface access token to load the LLMs from the huggingface hub.
 
 ## 3. Reproduce the results in the paper:
 
