@@ -1,0 +1,107 @@
+[project]
+name = "src"
+version = "0.1.0"
+description = "A short description of your project"
+readme = "README.md"
+requires-python = ">=3.9"
+# Add here the dependencies of your package. They will be installed whenever someone pip-installs your package.
+dependencies = [
+    # "requests>=2.0.0",
+]
+classifiers = [
+    # To get lists of possible classifiers, pip install trove_classifiers
+    # then run e.g. `python -m trove_classifiers | grep -i status`
+
+    # How mature is this project? Common values are
+    #   3 - Alpha
+    #   4 - Beta
+    #   5 - Production/Stable
+    "Development Status :: 3 - Alpha",
+
+    # Indicate who your project is intended for
+    "Intended Audience :: Developers",
+
+    # Specify the Python versions you support here. In particular, ensure
+    # that you indicate you support Python 3. These classifiers are *not*
+    # checked by 'pip install'. See instead 'python_requires' below.
+    "Programming Language :: Python :: 3",
+]
+
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+pythonpath = "."
+markers = [
+    "gpu: marks tests which need a GPU to run",
+]
+
+
+# default line length of 80 is a bit extreme with wide screens, we set it to 120
+[tool.black]
+line-length = 120
+
+# Default configuration for ruff
+[tool.ruff]
+
+# Config for `ruff format`
+line-length = 120
+
+# Enable pycodestyle (`E`) and Pyflakes (`F`) codes by default.
+select = [
+     "A",  # prevent using keywords that clobber python builtins
+    "B",  # bugbear: security warnings
+    "E",  # pycodestyle
+    "F",  # pyflakes
+    "ISC",  # implicit string concatenation
+    "UP",  # alert you when better syntax is available in your python version
+    "RUF",  # the ruff developer's own rules
+]
+
+# Never enforce `E501` (line length violations).
+ignore = ["E501", "ISC001", "B905"]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+fixable = ["A", "B", "C", "D", "E", "F", "G", "I", "N", "Q", "S", "T", "W", "ANN", "ARG", "BLE", "COM", "DJ", "DTZ", "EM", "ERA", "EXE", "FBT", "ICN", "INP", "ISC", "NPY", "PD", "PGH", "PIE", "PL", "PT", "PTH", "PYI", "RET", "RSE", "RUF", "SIM", "SLF", "TCH", "TID", "TRY", "UP", "YTT"]
+unfixable = []
+
+# Exclude a variety of commonly ignored directories.
+exclude = [
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+per-file-ignores = {}
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+# Assume Python 3.10.
+target-version = "py310"
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
