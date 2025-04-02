@@ -23,8 +23,8 @@ This repository contains the code to reproduce the results of the *Context Copyi
 
 Experiments can be executed on the following language models:
 
-- GPT2-small
 - Phi-1.5
+- GPT2-small
 - Llama3-8B
 - Mistral-7B-v0.1
 - Pythia-1.4B
