@@ -101,4 +101,4 @@ The latex tables can be found in the `latex_tables` sub-folder:
 
 ### Hardware:
 
-The experiments in the paper where performed on an NVIDIA H100 with 80GB of VRAM.
+The experiments in the paper where performed on an NVIDIA H100 GPU with 80GB of VRAM.
