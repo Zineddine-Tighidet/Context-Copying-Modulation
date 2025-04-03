@@ -53,7 +53,7 @@ Finally install the package with `pip`:
 pip install .
 ```
 
-## 3. Reproduce the results in the paper:
+## 2. Reproduce the results in the paper:
 
 **Important:** before running the `pipeline.sh` script, make sure to add execution permission:
 ```sh
