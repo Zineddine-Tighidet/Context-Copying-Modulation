@@ -98,3 +98,7 @@ The figure can be found in the `entropy_neurons_figures` sub-folder:
 
 The latex tables can be found in the `latex_tables` sub-folder:
 - `latex_tables/<model_name>/<model_name>-<ablation_value>-synthetic_table_proportions.txt`: the latex source code for the Transition Scores table, including the necessary packages and header.
+
+### Hardware:
+
+The experiments in the paper where performed on an NVIDIA H100 with 80GB of VRAM.
