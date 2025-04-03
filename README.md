@@ -85,7 +85,7 @@ After running the `pipeline.sh` script, you can find the paper figures and table
 The figure can be found in the `entropy_neurons_figures` sub-folder:
 
 - `entropy_neurons_figures/<model_name>/<model_name>_logitvar_and_rho-nb_neurons_with_low_logitvar=<nb_selected_entropy_neurons>.png`: the selected entropy neurons for `<model_name>` displayed on the $LogitVar$ and $\rho$ axis.
-- `entropy_neurons_figures/<model_name>/singular_values_and_null_space_nb_dims=40.pdf`: figure with the singular values and the selected null space (in red) for the unembedding matrix $W_U$.
+- `entropy_neurons_figures/<model_name>/singular_values_and_null_space_nb_dims=<null_space_dimension>.pdf`: figure with the singular values and the selected null space (in red) for the unembedding matrix $W_U$.
 - `entropy_neurons_figures/<model_name>/<model_name>_weight_norm_distro-nb_neurons_with_low_logitvar=<nb_selected_entropy_neurons>.png`: the weight norm distribution for entropy neurons (red) and other neurons (blue).
 - `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>-conversion_ratios.pdf`: the Conversion Ratio figure for all the knowledge categories (CK, PK, and ND).
 - `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_transition_score.png`: the Global Transition Score histogram for random neurons (blue bars) and entropy neurons (red dashed line).
