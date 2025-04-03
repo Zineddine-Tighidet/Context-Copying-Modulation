@@ -89,9 +89,9 @@ The figure can be found in the `entropy_neurons_figures` sub-folder:
 - `entropy_neurons_figures/<model_name>/<model_name>_weight_norm_distro-nb_neurons_with_low_logitvar=<nb_selected_entropy_neurons>.png`: the weight norm distribution for entropy neurons (red) and other neurons (blue).
 - `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>-conversion_ratios.pdf`: the Conversion Ratio figure for all the knowledge categories (CK, PK, and ND).
 - `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_transition_score.png`: the Global Transition Score histogram for random neurons (blue bars) and entropy neurons (red dashed line).
-- `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_ablation_log_ck_pk.pdf`: the $\frac{\log P_{CK}}{P_{PK}}$ ratio with a decision boundary at 0.
-- `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_ablation_log_nd_ck.pdf`: the $\frac{\log P_{ND}}{P_{CK}}$ ratio with a decision boundary at 0.
-- `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_ablation_log_nd_pk.pdf`: the $\frac{\log P_{ND}}{P_{PK}}$ ratio with a decision boundary at 0.
+- `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_ablation_log_ck_pk.pdf`: the $\log\frac{P_{CK}}{P_{PK}}$ ratio with a decision boundary at 0.
+- `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_ablation_log_nd_ck.pdf`: the $\log\frac{P_{ND}}{P_{CK}}$ ratio with a decision boundary at 0.
+- `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_ablation_log_nd_pk.pdf`: the $\log\frac{P_{ND}}{P_{PK}}$ ratio with a decision boundary at 0.
 - `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_ablation_empirical_noises.pdf`: the $\Delta \text{log-ratio}$ of `<model_name>`, i.e. the difference between each log-ratio before and after ablation.
 
 ### Latex Tables:
