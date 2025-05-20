@@ -8,7 +8,7 @@
 
 # Overview
 
-This repository contains the code to reproduce the results of the *Context Copying Modulation: The Role of Entropy Neurons in Managing Parametric and Contextual Knowledge Conflicts* paper under review at COLM 2025.
+This repository contains the code to reproduce the results of the *Context Copying Modulation: The Role of Entropy Neurons in Managing Parametric and Contextual Knowledge Conflicts* paper under review at the ARR 2025 may cycle.
 
 # Abstract
 
