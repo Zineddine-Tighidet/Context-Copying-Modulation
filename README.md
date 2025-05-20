@@ -24,8 +24,8 @@ This repository contains the code to reproduce the results of the *Context Copyi
 Experiments can be executed on the following language models:
 
 - Phi-1.5
-- GPT2-small
-- Llama3-8B
+- GPT-2-small
+- Llama-3-8B
 - Mistral-7B-v0.1
 - Pythia-1.4B
 
@@ -89,16 +89,7 @@ The figure can be found in the `entropy_neurons_figures` sub-folder:
 - `entropy_neurons_figures/<model_name>/<model_name>_weight_norm_distro-nb_neurons_with_low_logitvar=<nb_selected_entropy_neurons>.png`: the weight norm distribution for entropy neurons (red) and other neurons (blue).
 - `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>-conversion_ratios.pdf`: the Conversion Ratio figure for all the knowledge categories (CK, PK, and ND).
 - `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_transition_score.png`: the Global Transition Score histogram for random neurons (blue bars) and entropy neurons (red dashed line).
-- `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_ablation_log_ck_pk.pdf`: the $\log\frac{P_{CK}}{P_{PK}}$ ratio with a decision boundary at 0.
-- `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_ablation_log_nd_ck.pdf`: the $\log\frac{P_{ND}}{P_{CK}}$ ratio with a decision boundary at 0.
-- `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_ablation_log_nd_pk.pdf`: the $\log\frac{P_{ND}}{P_{PK}}$ ratio with a decision boundary at 0.
-- `entropy_neurons_figures/<model_name>/<model_name>_<ablation_value>_ablation_empirical_noises.pdf`: the $\Delta \text{log-ratio}$ of `<model_name>`, i.e. the difference between each log-ratio before and after ablation.
-
-### Latex Tables:
-
-The latex tables can be found in the `latex_tables` sub-folder:
-- `latex_tables/<model_name>/<model_name>-<ablation_value>-synthetic_table_proportions.txt`: the latex source code for the Transition Scores table, including the necessary packages and header.
 
 ### Hardware:
 
-The experiments in the paper where performed on an NVIDIA H100 GPU with 80GB of VRAM.
+The experiments in the paper where performed on NVIDIA A100 and H100 GPUs each equiped with 80GB of VRAM.
