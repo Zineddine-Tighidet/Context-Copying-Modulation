@@ -46,5 +46,3 @@ python scripts/entropy_neurons_scripts/entropy_neurons_figures.py --last_layer_o
 python scripts/entropy_neurons_scripts/entropy_neurons_ablation.py $model_name_arg --datetime $current_datetime --neurons_ablation --ablation_value $ablation_value --device $device
 python scripts/entropy_neurons_scripts/compute_ablation_scores.py --datetime $current_datetime $model_name_arg --ablation_value $ablation_value --device $device
 python scripts/entropy_neurons_scripts/post_ablation_figures.py --datetime $current_datetime $model_name_arg --ablation_value $ablation_value --device $device
-python scripts/entropy_neurons_scripts/decision_boundary_experiment.py --datetime $current_datetime $model_name_arg --ablation_value $ablation_value --device $device
-python scripts/entropy_neurons_scripts/format_latex_tables.py --datetime $current_datetime $model_name_arg --ablation_value $ablation_value --device $device

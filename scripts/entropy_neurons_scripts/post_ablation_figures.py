@@ -155,72 +155,170 @@ if __name__ == "__main__":
                     "Random Std": [data["ckcr_random_std"], data["pkcr_random_std"], data["ndcr_random_std"]],
                 }
             )
-
+            # Set the style of the visualization
             sns.set_theme(context="paper")
 
-            fig, ax = plt.subplots(figsize=(8, 6))
+            # Define the order of the Knowledge Source categories
+            order = ["ND", "PK", "CK"]
+            order_idx = {"ND": 0, "PK": 1, "CK": 2}
 
-            barplot = sns.barplot(
-                x="Knowledge Source",
-                y="Conversion Ratio",
-                data=df,
-                palette="Set2",
-                ax=ax,
-                edgecolor="black",
-                linewidth=1.5,
-                width=0.4,
-                hatch="\\\\",
-            )
+            # Define the colors from the Set2 palette
+            colors = sns.color_palette("Set2", len(order))
+            color_map = {category: color for category, color in zip(order, colors[::-1])}
 
-            for i, row in df.iterrows():
-                ax.errorbar(
-                    x=i,
-                    y=row["Conversion Ratio"],
-                    yerr=row["Std Conversion Ratio"],
-                    fmt="o",
-                    color="black",
-                    capsize=5,
-                    capthick=1.5,
-                )
+            if model_name == "gpt2-small":
+                # Create a two-axis plot for gpt2-small for better visualization of the PK/ND and CK scales
+                df_ck = df[df["Knowledge Source"] == "CK"]
+                df_other = df[df["Knowledge Source"].isin(["ND", "PK"])]
 
-            bar_width = 0.2
-            for i, row in df.iterrows():
-                ax.bar(
-                    i + 1.5 * bar_width,
-                    row["Random Mean"],
-                    width=bar_width,
-                    color="lightgray",
+                fig, (ax1, ax2) = plt.subplots(nrows=2, figsize=(8, 6), gridspec_kw={'height_ratios': [2, 1]})
+
+                def plot_bar_with_error(ax, data, y_labels, offset=0.3):
+                    for i, row in data.iterrows():
+                        y = y_labels[row["Knowledge Source"]]
+                        # Conversion Ratio bar
+                        ax.barh(
+                            y=y,
+                            width=row["Conversion Ratio"],
+                            height=0.4,
+                            color=color_map[row["Knowledge Source"]],
+                            edgecolor="black",
+                            linewidth=1.5,
+                            hatch="\\\\"
+                        )
+                        # Conversion Ratio error bar
+                        ax.errorbar(
+                            x=row["Conversion Ratio"],
+                            y=y,
+                            xerr=row["Std Conversion Ratio"],
+                            fmt="o",
+                            color="black",
+                            capsize=5,
+                            capthick=1.5,
+                        )
+                        # Random Neurons bar
+                        ax.barh(
+                            y=y + offset,
+                            width=row["Random Mean"],
+                            height=0.2,
+                            color="lightgray",
+                            edgecolor="black",
+                            linewidth=1.5,
+                            hatch="/"
+                        )
+                        # Random Neurons error bar
+                        x = row["Random Mean"]
+                        xerr = min(x, row["Random Std"])
+                        ax.errorbar(
+                            x=x,
+                            y=y + offset,
+                            xerr=xerr,
+                            fmt="o",
+                            color="black",
+                            capsize=5,
+                            capthick=1.5,
+                        )
+
+                # Plot CK (bottom)
+                plot_bar_with_error(ax2, df_ck, {"CK": 0})
+
+                # Plot ND and PK (top)
+                plot_bar_with_error(ax1, df_other, {"ND": 0, "PK": 1})
+
+                # Set Y-axis
+                ax1.set_yticks([0, 1])
+                ax1.set_yticklabels(["ND", "PK"], fontsize=22)
+                ax2.set_yticks([0])
+                ax2.set_yticklabels(["CK"], fontsize=22)
+
+                # Set X-axis (independent)
+                # ax1.set_xlabel("Conversion Ratio", fontsize=28)
+                ax1.set_xticklabels(ax1.get_xticklabels(), fontsize=22)
+
+                # ax2.set_xlabel("Conversion Ratio", fontsize=28)
+                ax2.set_xticklabels(ax2.get_xticklabels(), fontsize=22)
+
+                legend_labels = ["Random Neurons"]
+                legend_handles = [
+                    plt.Rectangle((0, 0), 4, 4, color="lightgray", edgecolor="black", linewidth=1.5, hatch="/")
+                ]
+                ax1.legend(legend_handles, legend_labels, loc="upper right", fontsize=19)
+
+                plt.tight_layout()
+                plt.savefig(Path(PATH) / datetime / "entropy_neurons_figures" / model_name / f"{model_name}_{ablation_type}-conversion_ratios.pdf")
+                plt.show()
+
+
+            else:
+                # Create a single-axis plot for all models except gpt2-small
+                fig, ax = plt.subplots(figsize=(8, 6))
+
+                barplot = sns.barplot(
+                    x="Conversion Ratio",
+                    y="Knowledge Source",
+                    data=df,
+                    palette=color_map,
+                    ax=ax,
                     edgecolor="black",
                     linewidth=1.5,
-                    hatch="/",
-                )
-                ax.errorbar(
-                    x=i + 1.5 * bar_width,
-                    y=row["Random Mean"],
-                    yerr=row["Random Std"],
-                    fmt="o",
-                    color="black",
-                    capsize=5,
-                    capthick=1.5,
+                    width=0.4,
+                    hatch="\\\\",
+                    order=order
                 )
 
-            ax.set_xlabel("Knowledge Source", fontsize=16)
-            ax.set_ylabel("Conversion Ratio (%)", fontsize=16)
+                for i, row in df.iterrows():
+                    ax.errorbar(
+                        x=row["Conversion Ratio"],
+                        y=order_idx[row["Knowledge Source"]],
+                        xerr=row["Std Conversion Ratio"],
+                        fmt="o",
+                        color="black",
+                        capsize=5,
+                        capthick=1.5,
+                    )
 
-            ax.set_xticklabels(ax.get_xticklabels(), fontsize=14)
-            ax.set_yticklabels(ax.get_yticklabels(), fontsize=14)
+                bar_width = 0.2
+                for i, row in df.iterrows():
+                    ax.barh(
+                        y=order_idx[row["Knowledge Source"]] + 1.5 * bar_width,
+                        width=row["Random Mean"],
+                        height=bar_width,
+                        color="lightgray",
+                        edgecolor="black",
+                        linewidth=1.5,
+                        hatch="/",
+                    )
 
-            legend_labels = ["Random Neurons"]
-            legend_handles = [
-                plt.Rectangle((0, 0), 4, 4, color="lightgray", edgecolor="black", linewidth=1.5, hatch="/")
-            ]
-            ax.legend(legend_handles, legend_labels, loc="upper right", fontsize=16)
+                    x = row["Random Mean"]
+                    xerr = row["Random Std"]
+                    lower_bound = x - xerr
+                    if lower_bound < 0:
+                        xerr = x
 
-            plt.tight_layout()
+                    ax.errorbar(
+                        x=x,
+                        y=order_idx[row["Knowledge Source"]] + 1.5 * bar_width,
+                        xerr=xerr,
+                        fmt="o",
+                        color="black",
+                        capsize=5,
+                        capthick=3.5,
+                    )
 
-            plt.savefig(Path(PATH) / datetime / "entropy_neurons_figures" / model_name / f"{model_name}_{ablation_type}-conversion_ratios.pdf")
+                    ax.set_ylabel("Knowledge Source", fontsize=32)
+                    ax.set_xlabel("", fontsize=32)
+                    ax.set_xticklabels(ax.get_xticklabels(), fontsize=22)
+                    ax.set_yticklabels(ax.get_yticklabels(), fontsize=22)
 
-            plt.show()
+                    legend_labels = ["Random Neurons"]
+                    legend_handles = [
+                        plt.Rectangle((0, 0), 4, 4, color="lightgray", edgecolor="black", linewidth=1.5, hatch="/")
+                    ]
+                    ax.legend(legend_handles, legend_labels, loc="upper right", fontsize=19)
+
+                    plt.tight_layout()
+                    plt.savefig(Path(PATH) / datetime / "entropy_neurons_figures" / model_name / f"{model_name}_{ablation_type}-conversion_ratios.pdf")
+                    plt.show()
 
             nd_to_ck = (
                 100
