@@ -6,6 +6,12 @@
     <br>
 <p>
 
+<p align="center">
+    <br>
+    <img src="input_data/entropy_neurons_mechanism_on_induction.gif" width="800" />
+    <br>
+<p>
+
 # Overview
 
 This repository contains the code to reproduce the results of the *Context Copying Modulation: The Role of Entropy Neurons in Managing Parametric and Contextual Knowledge Conflicts* paper.
