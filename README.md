@@ -1,29 +1,37 @@
-# Context Copying Modulation: The Role of Entropy Neurons in Managing Parametric and Contextual Knowledge Conflicts
+[![arXiv](https://img.shields.io/badge/arXiv-2408.08656-b31b1b.svg)](https://arxiv.org/abs/2509.10663)
 
-<p align="center">
-    <br>
-    <img src="input_data/entropy_neurons_schema.png" width="800" />
-    <br>
-<p>
 
-<p align="center">
-    <br>
-    <img src="input_data/entropy_neurons_mechanism_on_induction.gif" width="800" />
-    <br>
-<p>
+<div align="center">
 
-# Overview
+<h1>Context Copying Modulation: The Role of Entropy Neurons in Managing Parametric and Contextual Knowledge Conflicts</h1>
+<div>
+    <a href='https://dxlong2000.github.io/' target='_blank'>Zineddine Tighidet</a><sup>1,2</sup>&emsp;
+    <a>Andrea Mogini</a><sup>1</sup>&emsp;
+    <a href='https://scholar.google.com/citations?user=IFLcfvUAAAAJ&hl=fr', target='_blank'>Hedi Ben-younes</a><sup>1</sup>&emsp;
+    <a href='https://www.jialimei.me', target='_blank'>Jiali Mei</a><sup>1</sup>&emsp;
+    <a href='https://pages.isir.upmc.fr/gallinari/' target='_blank'>Patrick Gallinari</a><sup>2,3</sup>&emsp;
+    <a href='https://www.piwowarski.fr' target='_blank'>Benjamin Piwowarski</a><sup>2</sup>&emsp;
+</div>
+<br>
+<div>
+    <sup>1</sup>BNP Paribas, Paris, France&emsp;<br>
+    <sup>2</sup>Sorbonne Université, CNRS, ISIR, F-75005 Paris, France&emsp;<br>
+    <sup>3</sup>Criteo AI Lab, Paris, France&emsp;
+</div>
+<br>
 
-This repository contains the code to reproduce the results of the *Context Copying Modulation: The Role of Entropy Neurons in Managing Parametric and Contextual Knowledge Conflicts* paper.
+Correspondence to: *zineddine.tighidet*@{*bnpparibas.com*, *sorbonne-universite.fr*}
+
+<br>
+
+<img src="input_data/entropy_neurons_schema.png" width="70%"/>
+<img src="input_data/entropy_neurons_mechanism_on_induction.gif" width="70%"/>
+
+</div>
 
 # Abstract
 
-<p>
-    The behavior of Large Language Models (LLMs) when facing contextual information that conflicts with their internal parametric knowledge is inconsistent, with no generally accepted explanation for the expected outcome distribution. Recent work has identified in autoregressive transformer models a class of neurons -- called 
-    -- that produce a significant effect on the model 
-    while having an overall moderate impact on the ranking of the predicted tokens. In this paper, we investigate the preliminary claim that these neurons are involved in inhibiting context copying behavior in transformers by looking at their role in resolving conflicts between contextual and parametric information. We show that 
-    are responsible for suppressing context copying across a range of LLMs, and that ablating them leads to a substantial change in the generation process. These results enhance our understanding of the internal dynamics of LLMs when handling conflicting information.
-</p>
+The behavior of Large Language Models (LLMs) when facing contextual information that conflicts with their internal parametric knowledge is inconsistent, with no generally accepted explanation for the expected outcome distribution. Recent work has identified in autoregressive transformer models a class of neurons -- called *entropy neurons* -- that produce a significant effect on the model while having an overall moderate impact on the ranking of the predicted tokens. In this paper, we investigate the preliminary claim that these neurons are involved in inhibiting context copying behavior in transformers by looking at their role in resolving conflicts between contextual and parametric information. We show that *entropy neurons* are responsible for suppressing context copying across a range of LLMs, and that ablating them leads to a substantial change in the generation process. These results enhance our understanding of the internal dynamics of LLMs when handling conflicting information.
 
 # Supported language models
 
@@ -99,3 +107,16 @@ The figure can be found in the `entropy_neurons_figures` sub-folder:
 ### Hardware:
 
 The experiments in the paper where performed on NVIDIA A100 and H100 GPUs each equiped with 80GB of VRAM.
+
+## Citation:
+```
+@misc{tighidet2025contextcopyingmodulationrole,
+      title={Context Copying Modulation: The Role of Entropy Neurons in Managing Parametric and Contextual Knowledge Conflicts}, 
+      author={Zineddine Tighidet and Andrea Mogini and Hedi Ben-younes and Jiali Mei and Patrick Gallinari and Benjamin Piwowarski},
+      year={2025},
+      eprint={2509.10663},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2509.10663}, 
+}
+```
