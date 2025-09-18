@@ -7,7 +7,7 @@
 <br>
 The Role of Entropy Neurons in Managing Parametric and Contextual Knowledge Conflicts</h1>
 <div>
-    <a href='https://dxlong2000.github.io/' target='_blank'>Zineddine Tighidet</a><sup>1,2</sup>&emsp;
+    <a href='https://zineddine-tighidet.github.io/' target='_blank'>Zineddine Tighidet</a><sup>1,2</sup>&emsp;
     <a>Andrea Mogini</a><sup>1</sup>&emsp;
     <a href='https://scholar.google.com/citations?user=IFLcfvUAAAAJ&hl=fr', target='_blank'>Hedi Ben-younes</a><sup>1</sup>&emsp;
     <a href='https://www.jialimei.me', target='_blank'>Jiali Mei</a><sup>1</sup>&emsp;
