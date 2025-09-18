@@ -9,6 +9,7 @@
     <a>Andrea Mogini</a><sup>1</sup>&emsp;
     <a href='https://scholar.google.com/citations?user=IFLcfvUAAAAJ&hl=fr', target='_blank'>Hedi Ben-younes</a><sup>1</sup>&emsp;
     <a href='https://www.jialimei.me', target='_blank'>Jiali Mei</a><sup>1</sup>&emsp;
+    <br>
     <a href='https://pages.isir.upmc.fr/gallinari/' target='_blank'>Patrick Gallinari</a><sup>2,3</sup>&emsp;
     <a href='https://www.piwowarski.fr' target='_blank'>Benjamin Piwowarski</a><sup>2</sup>&emsp;
 </div>
