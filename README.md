@@ -3,7 +3,9 @@
 
 <div align="center">
 
-<h1>Context Copying Modulation: The Role of Entropy Neurons in Managing Parametric and Contextual Knowledge Conflicts</h1>
+<h1>Context Copying Modulation:
+<br>
+The Role of Entropy Neurons in Managing Parametric and Contextual Knowledge Conflicts</h1>
 <div>
     <a href='https://dxlong2000.github.io/' target='_blank'>Zineddine Tighidet</a><sup>1,2</sup>&emsp;
     <a>Andrea Mogini</a><sup>1</sup>&emsp;
